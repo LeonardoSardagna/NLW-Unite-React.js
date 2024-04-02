@@ -7,7 +7,7 @@ export function AttendeeList() {
                 <h1 className="font-bold text-2xl">Participantes</h1>
                 <div className="border rounded-lg py-1.5 px-3 w-72 flex items-center gap-2">
                     <Search className="size-4 text-orange-300" />
-                    <input placeholder="Buscar participante..." className="bg-transparent flex-1 outline-none border-0 p-0"></input>
+                    <input placeholder="Buscar participante..." className="focus:outline-none border-0 bg-transparent flex-1 text-sm border-0 p-0"></input>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@ export function AttendeeList() {
                         </tr>
                     </thead>
                     <tbody className="border-b border-white/20 ">
-                        {Array.from({ length: 6 }).map((_, i) => {
+                        {Array.from({ length: 5 }).map((_, i) => {
                             return (
                                 <tr className="hover:bg-white/5" key={i}>
                                     <td className="text-sm py-3 px-4 text-left">
