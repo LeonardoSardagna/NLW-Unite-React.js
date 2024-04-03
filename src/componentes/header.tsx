@@ -1,11 +1,12 @@
 import logo from "../../public/assets/nlw-unite-icon.svg"
+import { NavLink } from "./nav-link"
 export function Header() {
     return (
         <div className="flex gap-5 items-center py-2">
             <img src={logo} alt="logo do nlw unite" />
             <nav className="flex items-center gap-5">
-                <a className="font-medium cursor-pointer text-sm text-zinc-300 ">Eventos</a>
-                <a className="font-medium cursor-pointer text-sm">Participantes</a>
+                <NavLink>Eventos</NavLink>
+                <NavLink>Participantes</NavLink>
             </nav>
         </div>
     )
