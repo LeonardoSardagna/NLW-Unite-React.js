@@ -10,7 +10,13 @@
 
 ###
 
-<p align="left">✔️ Tela do gerenciador;<br>✔️ Criação dos componentes;<br>✔️ Estilização da tabela;<br>✔️ Criação de funções;<br>✔️ Navegação entre as páginas.</p>
+<ul align="left">
+    <li>✔️ Tela do gerenciador</li>
+    <li>✔️ Criação dos componentes</li>
+    <li>✔️ Estilização da tabela</li>
+    <li>✔️ Criação de funções</li>
+    <li>✔️ Navegação entre as páginas.</li>
+</ul>
 
 ###
 
@@ -18,6 +24,11 @@
 
 ###
 
-<p align="left">As seguintes ferramentas foram utilizadas neste projeto:<br><br>React.js<br>TypeScript<br>Tailwind CSS<br>Lucide.js</p>
+<ul align="left">
+    <li>✔️React.js</li>
+    <li>✔️TypeScript</li>
+    <li>✔️Tailwind CSS</li>
+    <li>✔️Lucide.js</li>
+</ul>
 
 ###
