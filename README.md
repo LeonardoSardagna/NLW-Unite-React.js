@@ -6,7 +6,7 @@
 
 ###
 
-<h2 align="left">Explicação</h2>
+<h2 align="left">Passo a passo</h2>
 
 ###
 
