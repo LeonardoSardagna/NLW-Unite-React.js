@@ -1,8 +1,16 @@
-<h1 align="left">NLW Unite Event Participant Management App</h1>
+<h1 align="center">NLW APP</h1>
 
 ###
 
-<p align="left">Este é um aplicativo React desenvolvido durante o evento NLW Unite da Rocketseat para simplificar o gerenciamento de participantes em eventos. Ele permite o cadastro, gerenciamento e visualização dos check-ins dos participantes.</p>
+<p align="left">O aplicativo NLW é um projeto desenvolvido durante a Next Level Week, um evento da Rocketseat. O Pass.in é uma aplicação de gestão de participantes em eventos presenciais.</p>
+
+###
+
+<h2 align="left">Explicação</h2>
+
+###
+
+<p align="left">✔️ Tela do gerenciador;<br>✔️ Criação dos componentes;<br>✔️ Estilização da tabela;<br>✔️ Criação de funções;<br>✔️ Navegação entre as páginas.</p>
 
 ###
 
@@ -10,6 +18,6 @@
 
 ###
 
-<p align="left">React: Uma biblioteca JavaScript para construir interfaces de usuário.<br>Tailwind CSS: Uma estrutura de design CSS de baixo nível que permite construir rapidamente designs personalizados.<br>Lucide.js: Uma biblioteca JavaScript para manipulação e visualização de dados.<br>Banco de Dados em Node.js: Utilizado para armazenar e gerenciar os dados dos participantes.</p>
+<p align="left">As seguintes ferramentas foram utilizadas neste projeto:<br><br>React.js<br>TypeScript<br>Tailwind CSS<br>Lucide.js</p>
 
 ###
