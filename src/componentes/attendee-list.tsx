@@ -90,8 +90,6 @@ export function AttendeeList() {
         setCurrentPage(totalpages)
     }
 
-
-
     return (
         <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3 ">
