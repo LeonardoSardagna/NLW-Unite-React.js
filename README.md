@@ -2,11 +2,6 @@
 
 ###
 
-<img src="https://i.im.ge/2024/04/05/WYh9fm.Projeto.png" alt="imagem do projeto">
-
-
-###
-
 <p align="left">O aplicativo NLW é um projeto desenvolvido durante a Next Level Week, um evento da Rocketseat. O Pass.in é uma aplicação de gestão de participantes em eventos presenciais.</p>
 
 ###
