@@ -2,7 +2,7 @@
 
 ###
 
-<image src="https://photos.app.goo.gl/L4UwubKiXJhvr3Gz7">
+![Proje](https://photos.app.goo.gl/3EmRksrpXfPV4se96)
 
 ###
 
