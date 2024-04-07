@@ -6,11 +6,11 @@
 
 #### Tela Principal
 
-<img src="public/assets/tela-principal.png" width="720px">
+<img align="center" src="public/assets/tela-principal.png" width="720px">
 
 #### Busca de participantes
 
-<img src="public/assets/tela-de-pesquisa.png" width="720px">
+<img align="center" src="public/assets/tela-de-pesquisa.png" width="720px">
 
 ###
 
@@ -62,3 +62,6 @@ Front-End: [https://github.com/LeonardoSardagna/NLW-Unite-React.js.git](https://
 
 Back-End: [https://github.com/LeonardoSardagna/NLW-Unite-server-NodeJS.git](https://github.com/LeonardoSardagna/NLW-Unite-server-NodeJS.git)
 
+## Autor
+
+Desenvolvido por Leonardo Sardagna durante o evento NLW Unite da Rocketseat
