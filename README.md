@@ -6,11 +6,11 @@
 
 #### Tela Principal
 
-<img src="src/assets/attendee.png" width="720px">
+<img src="public/assets/tela-principal.png" width="720px">
 
 #### Busca de participantes
 
-<img src="src/assets/search.png" width="720px">
+<img src="public/assets/tela-de-pesquisa.png" width="720px">
 
 ###
 
