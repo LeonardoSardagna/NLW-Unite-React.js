@@ -3,7 +3,7 @@ import { Mail, Send, UserCircle, X } from "lucide-react";
 export function AddParticipants() {
     return (
         <>
-        <dialog open className="p-5 z-50 text-zinc-50 bg-black border border-zinc-500 rounded-lg  relative">
+        <dialog open className="p-5 z-50 text-zinc-50 bg-zinc-900 border border-zinc-500 rounded-lg  relative">
             <div className="flex flex-col gap-2">
                 <p className="text-xl font-normal">Adicionar participantes</p>
                 <p className="text-base font-normal">Preencha com as informações que deseja adicionar</p>

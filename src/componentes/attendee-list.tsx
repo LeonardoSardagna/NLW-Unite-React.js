@@ -93,10 +93,10 @@ export function AttendeeList() {
     }
 
     //adiciona o menu no lado do usuário
-    const [menuAberto, setMenuAberto] = useState(false)
+    const [menuAberto, setMenuAberto] = useState<number | null>(null);
 
-    const toggleMenu = () => {
-        setMenuAberto(!menuAberto)
+    const toggleMenu = (index: number) => {
+        setMenuAberto(menuAberto === index ? null : index)
     }
 
     //adiciona o menu para adicionar um usuário
@@ -127,7 +127,6 @@ export function AttendeeList() {
             </div>
             {addAttendee && (
                 <>
-                
                 <div className="absolute right-2/4 top-2/4 translate-x-2/4 -translate-y-3/4">
                     <AddParticipants/>
                 </div>
@@ -139,7 +138,7 @@ export function AttendeeList() {
                         <TableHeader style={{ width: 32 }}>
                             <input type="checkbox" className="size-3 bg-transparent rounded border border-white/20 checked:text-orange-400 focus:ring-0" />
                         </TableHeader>
-                        <TableHeader>Código</TableHeader>
+                        <TableHeader>Ingresso</TableHeader>
                         <TableHeader>Participante</TableHeader>
                         <TableHeader>Data da inscrição</TableHeader>
                         <TableHeader>Data do check-in</TableHeader>
@@ -147,7 +146,7 @@ export function AttendeeList() {
                     </tr>
                 </thead>
                 <tbody className="border-b border-white/20">
-                    {attendees.map((attendee) => {
+                    {attendees.map((attendee, index) => {
                         return (
                             <tr key={attendee.name} className=" border-b border-white/20  hover:bg-white/5">
                                 <TableCell>
@@ -169,12 +168,14 @@ export function AttendeeList() {
                                         {dayjs().to(attendee.checkedInAt)}
                                     </div>
                                 }</TableCell>
-                                <td onClick={toggleMenu} >
+                                <td onClick={()=> toggleMenu(index)} >
                                     <IconButton transparent className="bg-black/20 p-1.5 rounded-md border border-white/10">
                                         <MoreHorizontal className="size-4" />
                                     </IconButton>
-                                    {menuAberto && (
-                                        <ParticipantOptions/>
+                                    {menuAberto === index && (
+                                        <div className="absolute">
+                                            <ParticipantOptions />
+                                        </div>
                                     )}
                                 </td>
                             </tr>
