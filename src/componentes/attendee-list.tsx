@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, CircleCheck, CircleX, MoreHorizontal, Search, UserPlus } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, CircleCheck, CircleX, Edit, Mail, MoreHorizontal, Search, Trash2, User, UserPlus } from "lucide-react";
 import { IconButton } from "./icon-button";
 import { Table } from "./table/table";
 import { TableHeader } from "./table/table-header";
@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/pt-br'
 import { AddParticipants } from "./addparticipants";
-import { ParticipantOptions } from "./participantOptions";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Dropdown, DropdownMenu, DropdownItem, cn } from "@nextui-org/react";
 
 dayjs.extend(relativeTime)
 dayjs.locale('pt-br')
@@ -102,9 +102,9 @@ export function AttendeeList() {
     //adiciona o menu para adicionar um usuário
     const [addAttendee, setAddAttendee] = useState(false)
 
-    const toggleAddAttendee = () => {
-        setAddAttendee(!addAttendee)
-    }
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+    const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
     return (
         <div className="flex flex-col gap-5">
@@ -120,17 +120,71 @@ export function AttendeeList() {
                         placeholder="Buscar participante..."
                         type="text" />
                 </div>
-                <div onClick={toggleAddAttendee} className="flex gap-2 items-center p-1.5 rounded-md cursor-pointer border border-green-700/40 transition ease-in-out hover:scale-105">
-                    <UserPlus className="text-green-700 " />
-                    <p>Adicionar participante</p>
+                <div >
+                    <Button onPress={onOpen} className="border border-zinc-500 bg-transparent transition ease-in-out hover:scale-105">
+                        <div className="flex gap-2 items-center">
+                            <UserPlus className="text-green-700 " />
+                            <p className="text-zinc-50">Adicionar participante</p>
+                        </div>
+                    </Button>
+                    <Modal
+                        backdrop="opaque"
+                        isOpen={isOpen}
+                        onOpenChange={onOpenChange}
+                        radius="lg"
+                        classNames={{
+                            body: "py-6",
+                            backdrop: "bg-[#000000]/50 backdrop-opacity-40",
+                            base: "border-[#292f46] bg-[#27272a] dark:bg-[#19172c] text-[#ffffff]",
+                            header: "border-b-[1px] border-[#6b7280]",
+                            footer: "border-t-[1px] border-[#6b7280]",
+                            closeButton: "hover:bg-white/5 active:bg-white/10",
+                        }}
+                    >
+                        <ModalContent>
+                            {(onClose) => (
+                                <>
+                                    <ModalHeader className="flex flex-col gap-1">Editar</ModalHeader>
+                                    <ModalBody>
+                                        <Input
+                                            autoFocus
+                                            endContent={
+                                                <User className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                                            }
+                                            label="Email"
+                                            placeholder="Enter your email"
+                                            variant="bordered"
+                                        />
+                                        <Input
+                                            endContent={
+                                                <Mail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                                            }
+                                            label="Password"
+                                            placeholder="Enter your password"
+                                            type="password"
+                                            variant="bordered"
+                                        />
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="danger" variant="flat" onPress={onClose}>
+                                            Fechar
+                                        </Button>
+                                        <Button color="primary" onPress={onClose}>
+                                            Adicionar
+                                        </Button>
+                                    </ModalFooter>
+                                </>
+                            )}
+                        </ModalContent>
+                    </Modal>
                 </div>
             </div>
             {addAttendee && (
                 <>
-                <div className="absolute right-2/4 top-2/4 translate-x-2/4 -translate-y-3/4">
-                    <AddParticipants/>
-                </div>
-                </>    
+                    <div className="absolute right-2/4 top-2/4 translate-x-2/4 -translate-y-3/4">
+                        <AddParticipants />
+                    </div>
+                </>
             )}
             <Table>
                 <thead className="border-b border-white/20">
@@ -168,13 +222,81 @@ export function AttendeeList() {
                                         {dayjs().to(attendee.checkedInAt)}
                                     </div>
                                 }</TableCell>
-                                <td onClick={()=> toggleMenu(index)} >
+                                <td onClick={() => toggleMenu(index)} >
                                     <IconButton transparent className="bg-black/20 p-1.5 rounded-md border border-white/10">
                                         <MoreHorizontal className="size-4" />
                                     </IconButton>
                                     {menuAberto === index && (
                                         <div className="absolute">
-                                            <ParticipantOptions />
+                                            <Dropdown className="bg-zinc-800">
+                                                <DropdownMenu variant="shadow" aria-label="Dropdown menu with icons">
+                                                    <DropdownItem
+                                                        key="edit"
+                                                        startContent={<Edit className={iconClasses}
+                                                        />}
+                                                    >
+                                                        Editar
+                                                        <Modal
+                                                            backdrop="opaque"
+                                                            isOpen={isOpen}
+                                                            onOpenChange={onOpenChange}
+                                                            radius="lg"
+                                                            classNames={{
+                                                                body: "py-6",
+                                                                backdrop: "bg-[#000000]/50 backdrop-opacity-40",
+                                                                base: "border-[#292f46] bg-[#27272a] dark:bg-[#19172c] text-[#ffffff]",
+                                                                header: "border-b-[1px] border-[#6b7280]",
+                                                                footer: "border-t-[1px] border-[#6b7280]",
+                                                                closeButton: "hover:bg-white/5 active:bg-white/10",
+                                                            }}
+                                                        >
+                                                            <ModalContent>
+                                                                {(onClose) => (
+                                                                    <>
+                                                                        <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
+                                                                        <ModalBody>
+                                                                            <Input
+                                                                                autoFocus
+                                                                                endContent={
+                                                                                    <User className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                                                                                }
+                                                                                label="Email"
+                                                                                placeholder="Enter your email"
+                                                                                variant="bordered"
+                                                                            />
+                                                                            <Input
+                                                                                endContent={
+                                                                                    <Mail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                                                                                }
+                                                                                label="Password"
+                                                                                placeholder="Enter your password"
+                                                                                type="password"
+                                                                                variant="bordered"
+                                                                            />
+                                                                        </ModalBody>
+                                                                        <ModalFooter>
+                                                                            <Button color="danger" variant="flat" onPress={onClose}>
+                                                                                Fechar
+                                                                            </Button>
+                                                                            <Button color="primary" onPress={onClose}>
+                                                                                Adicionar
+                                                                            </Button>
+                                                                        </ModalFooter>
+                                                                    </>
+                                                                )}
+                                                            </ModalContent>
+                                                        </Modal>
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        key="delete"
+                                                        className="text-danger"
+                                                        color="danger"
+                                                        startContent={<Trash2 className={cn(iconClasses, "text-danger")} />}
+                                                    >
+                                                        Excluir
+                                                    </DropdownItem>
+                                                </DropdownMenu>
+                                            </Dropdown>
                                         </div>
                                     )}
                                 </td>
